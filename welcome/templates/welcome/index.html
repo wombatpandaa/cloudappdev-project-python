@@ -5,12 +5,12 @@
   const SPEED = 480
 
   // initialize context
-  kaboom()
+  kaboom();
 
   scene("game", () => {
 
   	// define gravity
-  	gravity(2400)
+  	gravity(2400);
 
   	// add a game object to screen
   	const player = add([
@@ -19,7 +19,7 @@
   		pos(80, 40),
   		area(),
   		body(),
-  	])
+  	]);
 
   	// floor
   	add([
@@ -30,7 +30,7 @@
   		area(),
   		solid(),
   		color(127, 200, 255),
-  	])
+  	]);
 
   	function jump() {
   		if (player.isGrounded()) {
@@ -39,8 +39,8 @@
   	}
 
   	// jump when user press space
-  	onKeyPress("space", jump)
-  	onClick(jump)
+  	onKeyPress("space", jump);
+  	onClick(jump);
 
   	function spawnTree() {
 
@@ -55,15 +55,15 @@
   			move(LEFT, SPEED),
   			cleanup(),
   			"tree",
-  		])
+  		]);
 
   		// wait a random amount of time to spawn next tree
-  		wait(rand(0.5, 1.5), spawnTree)
+  		wait(rand(0.5, 1.5), spawnTree);
 
   	}
 
   	// start spawning trees
-  	spawnTree()
+  	spawnTree();
 
   	// lose if player collides with any game obj with tag "tree"
   	player.onCollide("tree", () => {
@@ -71,23 +71,23 @@
   		go("lose", score)
   		burp()
   		addKaboom(player.pos)
-  	})
+  	});
 
   	// keep track of score
-  	let score = 0
+  	let score = 0;
 
   	const scoreLabel = add([
   		text(score),
   		pos(24, 24),
-  	])
+  	]);
 
   	// increment score every frame
   	onUpdate(() => {
   		score++
   		scoreLabel.text = score
-  	})
+  	});
 
-  })
+  });
 
   scene("lose", (score) => {
 
@@ -96,7 +96,7 @@
   		pos(width() / 2, height() / 2 - 80),
   		scale(2),
   		origin("center"),
-  	])
+  	]);
 
   	// display score
   	add([
@@ -104,15 +104,15 @@
   		pos(width() / 2, height() / 2 + 80),
   		scale(2),
   		origin("center"),
-  	])
+  	]);
 
   	// go back to game with space is pressed
   	onKeyPress("space", () => go("game"))
-  	onClick(() => go("game"))
+  	onClick(() => go("game"));
 
-  })
+  });
 
-  go("game")
+  go("game");
 
 
 </script>
