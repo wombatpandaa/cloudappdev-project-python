@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <h3>A Perfectly Normal Website</h3>
-  <h4>With one singular button</h4>
-  <br><br>
-  <h5>Whatever could it do?</h5>
-  <br>
-  <p id="og"></p>
-  <p id="otama"></p>
-  <button id = "rick" onclick = "roll()">Press Me</button>
-
-  <script>
-    function roll() {
-      document.getElementById("og").innerHTML= "pizza";
+  <head>
+    <style>
+    body {
+      text-align:center;
     }
-    </script>
-</body>
+    </style>
+  </head>
+  <body>
+    <h3>A Perfectly Normal Website</h3>
+    <h4>With one singular button</h4>
+    <br>
+    <h5>Whatever could it do?</h5>
+    <br>
+    <p id="og"></p>
+    <p id="otama"></p>
+    <button id = "rick" onclick = "roll()">Press Me</button>
+
+    <script>
+      function roll() {
+        document.getElementById("og").innerHTML= "pizza";
+      }
+      </script>
+  </body>
 </html>
